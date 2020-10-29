@@ -1,0 +1,9 @@
+package ${target.javaPackageFromFolder($SRC)};
+
+import org.springframework.data.repository.CrudRepository;
+
+import ${target.javaPackageFromFolder($SRC)}.${entity.name};
+
+public interface ${entity.name}Repository extends CrudRepository<${entity.name}, Integer> {
+
+}

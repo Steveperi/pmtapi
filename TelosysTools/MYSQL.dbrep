@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+    <tableList databaseId="0" databaseName="MYSQL" databaseProductName="MySQL" generation="2020-10-29 15:48:02">
+        <table catalog="pmt_api" databaseComment="" databaseType="TABLE" javaBean="Player" name="player" schema="">
+            <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT UNSIGNED" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="sid" dbNotNull="false" dbPosition="2" dbSize="36" dbTypeName="CHAR" inputType="text" javaName="sid" javaType="java.lang.String" jdbcTypeCode="1" label="Sid" maxLength="36" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="type" dbNotNull="false" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="type" javaType="java.lang.String" jdbcTypeCode="12" label="Type" maxLength="255" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="name" dbNotNull="false" dbPosition="4" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="name" javaType="java.lang.String" jdbcTypeCode="12" label="Name" maxLength="255" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="email" dbNotNull="false" dbPosition="5" dbSize="1000" dbTypeName="VARCHAR" inputType="text" javaName="email" javaType="java.lang.String" jdbcTypeCode="12" label="Email" maxLength="1000" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="phone" dbNotNull="false" dbPosition="6" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="phone" javaType="java.lang.String" jdbcTypeCode="1" label="Phone" maxLength="30" notNull="false" selected="true"/>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="property_data-client" id="LINK_FK_property_data-client_I" inverseSideOf="LINK_FK_property_data-client_O" javaName="listOfPropertyData" javaType="java.util.List" joinTableName="" mappedBy="player" optional="" owningSide="false" sourceTableName="player" targetEntity="PropertyData" targetTableName="property_data" used="true"/>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="property_data-owner" id="LINK_FK_property_data-owner_I" inverseSideOf="LINK_FK_property_data-owner_O" javaName="listOfPropertyData2" javaType="java.util.List" joinTableName="" mappedBy="player2" optional="" owningSide="false" sourceTableName="player" targetEntity="PropertyData" targetTableName="property_data" used="true"/>
+        </table>
+        <table catalog="pmt_api" databaseComment="" databaseType="TABLE" javaBean="Property" name="property" schema="">
+            <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT UNSIGNED" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="sid" dbNotNull="false" dbPosition="2" dbSize="36" dbTypeName="CHAR" inputType="text" javaName="sid" javaType="java.lang.String" jdbcTypeCode="1" label="Sid" maxLength="36" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="address" dbNotNull="false" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="address" javaType="java.lang.String" jdbcTypeCode="12" label="Address" maxLength="255" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="latitude" dbNotNull="false" dbPosition="4" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="latitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Latitude" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="longitude" dbNotNull="false" dbPosition="5" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="longitude" javaType="java.lang.Double" jdbcTypeCode="8" label="Longitude" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="point" dbNotNull="false" dbPosition="6" dbSize="65535" dbTypeName="GEOMETRY" inputType="" javaName="point" javaType="byte[]" jdbcTypeCode="-2" label="Point" notNull="false" selected="true"/>
+            <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="property_data-property" id="LINK_FK_property_data-property_I" inverseSideOf="LINK_FK_property_data-property_O" javaName="listOfPropertyData" javaType="java.util.List" joinTableName="" mappedBy="property" optional="" owningSide="false" sourceTableName="property" targetEntity="PropertyData" targetTableName="property_data" used="true"/>
+        </table>
+        <table catalog="pmt_api" databaseComment="" databaseType="TABLE" javaBean="PropertyData" name="property_data" schema="">
+            <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT UNSIGNED" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+            <column dbComment="" dbDefaultValue="0" dbName="current" dbNotNull="false" dbPosition="2" dbSize="3" dbTypeName="TINYINT UNSIGNED" inputType="number" javaName="current" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Current" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="sid" dbNotNull="false" dbPosition="3" dbSize="36" dbTypeName="CHAR" inputType="text" javaName="sid" javaType="java.lang.String" jdbcTypeCode="1" label="Sid" maxLength="36" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="owner_id" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="INT UNSIGNED" inputType="number" javaName="ownerId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Owner id" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="client_id" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="INT UNSIGNED" inputType="number" javaName="clientId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Client id" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="property_id" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="INT UNSIGNED" inputType="number" javaName="propertyId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Property id" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="type" dbNotNull="false" dbPosition="7" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="type" javaType="java.lang.String" jdbcTypeCode="12" label="Type" maxLength="255" notNull="false" selected="true"/>
+            <column dateType="DT" dbComment="" dbDefaultValue="" dbName="created_at" dbNotNull="false" dbPosition="8" dbSize="19" dbTypeName="TIMESTAMP" inputType="" javaName="createdAt" javaType="java.util.Date" jdbcTypeCode="93" label="Created at" notNull="false" selected="true"/>
+            <column dateType="DT" dbComment="" dbDefaultValue="" dbName="updated_at" dbNotNull="false" dbPosition="9" dbSize="19" dbTypeName="TIMESTAMP" inputType="" javaName="updatedAt" javaType="java.util.Date" jdbcTypeCode="93" label="Updated at" notNull="false" selected="true"/>
+            <column dbComment="" dbDefaultValue="" dbName="surface" dbNotNull="false" dbPosition="10" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="surface" javaType="java.lang.Double" jdbcTypeCode="8" label="Surface" notNull="false" selected="true"/>
+            <fk name="property_data-client">
+                <fkcol colname="client_id" colref="id" deferrable="7" deleterule="2" sequence="1" tablename="property_data" tableref="player" updaterule="1"/>
+            </fk>
+            <fk name="property_data-owner">
+                <fkcol colname="owner_id" colref="id" deferrable="7" deleterule="2" sequence="1" tablename="property_data" tableref="player" updaterule="1"/>
+            </fk>
+            <fk name="property_data-property">
+                <fkcol colname="property_id" colref="id" deferrable="7" deleterule="0" sequence="1" tablename="property_data" tableref="property" updaterule="1"/>
+            </fk>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="property_data-owner" id="LINK_FK_property_data-owner_O" inverseSideOf="" javaName="player2" javaType="Player" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="property_data" targetEntity="Player" targetTableName="player" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="owner_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="property_data-property" id="LINK_FK_property_data-property_O" inverseSideOf="" javaName="property" javaType="Property" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="property_data" targetEntity="Property" targetTableName="property" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="property_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+            <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="property_data-client" id="LINK_FK_property_data-client_O" inverseSideOf="" javaName="player" javaType="Player" joinTableName="" mappedBy="" optional="" owningSide="true" sourceTableName="property_data" targetEntity="Player" targetTableName="player" used="true">
+                <joinColumns>
+                    <joinColumn insertable="false" name="client_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+                </joinColumns>
+            </link>
+        </table>
+    </tableList>
+</root>
